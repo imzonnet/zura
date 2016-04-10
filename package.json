@@ -1,0 +1,14 @@
+{
+  "name": "zura",
+  "version": "1.0.0",
+  "description": "Zura Base Theme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zuravn.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.5"
+  }
+}

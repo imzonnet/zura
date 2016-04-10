@@ -1,0 +1,307 @@
+#sidebar {
+    .widget {
+        overflow: hidden;
+        margin: 0 0 20px;
+        .widget-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            position: relative;
+            margin: 0 0 10px;
+            padding-left: 15px;
+            &:before {
+                content: '';
+                width: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                background-color: $primary_color;
+            }
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                line-height: 28px;
+                list-style: outside none none;
+                position: relative;
+                a {
+                    color: $link_color;
+                }
+                &:hover {
+                    a {
+                        color: $primary_color;
+                    }
+                }
+            }
+        }
+        option {
+            padding: 6px 12px;
+        }
+        select {
+            color: #FFF;
+            font-weight: 400;
+        }
+    }
+
+    .widget-section-title {
+        float: left;
+        margin-bottom: 18px;
+        position: relative;
+        width: 100%;
+        h2 {
+            font-size: 16px;
+            margin: 0;
+            padding: 0 0 0 15px;
+            position: relative;
+            text-transform: uppercase;
+            &::before {
+                content: "";
+                height: 72%;
+                left: 0;
+                position: absolute;
+                top: 3px;
+                width: 6px;
+            }
+        }
+    }
+
+    .widget_search {
+        overflow: hidden;
+        .zura-search-area {
+            position: relative;
+            input[type="text"] {
+                float: left;
+                font-size: 14px;
+                height: 46px;
+                padding-left: 20px;
+                width: 100%;
+            }
+            .search-submit {
+                display: inline-block;
+                margin: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                &::before {
+                    color: #FFF;
+                    content: "\f002";
+                    font-family: FontAwesome;
+                    font-size: 12px;
+                    left: 0;
+                    padding: 10px 13px;
+                    position: absolute;
+                    top: 0;
+                    background-color: #D95E36;
+                    border-radius: 0 4px 4px 0;
+                }
+            }
+        }
+        form {
+            label {
+                input[type="submit"] {
+                    border-radius: 0;
+                    border: medium none;
+                    height: 44px;
+                    text-align: center;
+                    text-indent: -999px;
+                    width: 38px;
+                }
+            }
+        }
+    }
+
+    .widget_cetegorie {
+        ul {
+            li {
+                border-bottom: 1px solid #333;
+                float: left;
+                padding: 6px 9px;
+                position: relative;
+                width: 100%;
+                &:first-child {
+                    border-top: 1px solid #333;
+                }
+            }
+        }
+    }
+
+    .widget_categories {
+        ul {
+            li {
+                float: left;
+                position: relative;
+                text-align: right;
+                width: 100%;
+                &::after {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                &:hover {
+                    padding-right: 30px;
+                }
+                a {
+                    float: left;
+                    text-align: left;
+                }
+            }
+            li:hover {
+                &::after {
+                    color: #333;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .widget_nav_menu {
+        ul {
+            li {
+                a {
+                    position: relative;
+                    i {
+                        color: #333;
+                        margin: 0 6px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .widget_cetegorie ul li::after, .widget_categories ul li::after,
+    .widget_pages ul li::after, .widget_meta ul li::after,
+    .widget_archive ul li::after, .widget_nav_menu ul li a::after {
+        color: #333;
+        content: "\f064";
+        font-family: FontAwesome;
+        font-size: 14px;
+        position: absolute;
+        right: 9px;
+        top: 6px;
+    }
+
+    .page-sidebar .widget ul li a, .page-sidebar .widget ul li,
+    .widget.widget_recent_comments li a, .widget_nav_menu ul li,
+    .widget_nav_menu ul li a, .widget_archive ul li a {
+        color: #333;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .widget_recent_comments {
+        ul {
+            li {
+                &:hover {
+                    background-color: $primary_color;
+                    a {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+
+    .widget_categories ul li, .widget_pages ul li, .widget_meta ul li,
+    .widget.widget_recent_comments li, .widget_recent_entries ul li,
+    .widget_nav_menu ul li a, .widget_archive ul li {
+        border-bottom: 1px solid #333;
+        float: left;
+        width: 100%;
+    }
+
+    .widget.widget_recent_comments {
+        li {
+            padding: 6px 0;
+        }
+    }
+
+    .widget_recent_entries {
+        ul {
+            li {
+                padding: 6px 0;
+            }
+        }
+    }
+
+    .widget_categories ul li, .widget_pages ul li,
+    .widget_meta ul li, .widget_nav_menu ul li a, .widget_archive ul li {
+        padding: 6px 10px 6px 0;
+    }
+
+    .page-no-search {
+        float: left;
+        width: 100%;
+    }
+
+    .widget_cetegorie ul li:hover::after, .widget_cetegorie ul li:hover a,
+    .widget_categories ul li:hover a, .widget_pages ul li:hover a,
+    .widget_meta ul li:hover a, .widget_nav_menu ul li a:hover,
+    .widget_nav_menu ul li a:hover i, .widget_archive ul li:hover a,
+    .widget_categories ul li:hover, .cs-tags ul li:hover a,
+    .widget_pages ul li:hover::after, .widget_meta ul li:hover::after,
+    .widget_archive ul li:hover::after, .widget_nav_menu ul li a:hover::after {
+        color: $primary_color;
+    }
+
+    .widget_recent {
+        ul {
+            li {
+                margin-bottom: 15px;
+                .text {
+                    h6 {
+                        line-height: 20px;
+                        margin-bottom: 0;
+                        a {
+                            color: #333;
+                            font-size: 14px;
+                        }
+                    }
+                    time {
+                        color: #a9a9a9;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
+                }
+                figure {
+                    border-radius: 100%;
+                    float: left;
+                    margin-bottom: 0;
+                    width: 60px;
+                    img {
+                        border-radius: 100%;
+                        width: 100%;
+                    }
+                }
+                figure ~ .text {
+                    padding: 0 0 0 74px;
+                }
+            }
+        }
+    }
+
+    .widget_recent li, .widget_text ul,
+    .widget_cs-services .cs-services,
+    .twitter_widget article {
+        float: left;
+        width: 100%;
+    }
+
+    .widget_text {
+        ul {
+            li {
+                margin: 0 0 5px;
+                i {
+                    float: left;
+                    padding: 5px 0 0;
+                }
+                p {
+                    margin: 0;
+                    padding: 0 0 0 25px;
+                }
+            }
+        }
+    }
+}

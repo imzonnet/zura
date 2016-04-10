@@ -1,0 +1,161 @@
+/**
+* Navigation
+*/
+@media screen and (min-width: 768px) {
+    .nav.main-navigation {
+        float: right;
+        > li {
+            > a {
+                color: $link_color;
+                font-size: 18px;
+                line-height: $header_height;
+                padding: 0 15px;
+            }
+            &.current-menu-item,
+            &.current-menu-ancestor,
+            &.current-menu-parent,
+            &.active,
+            &:hover {
+                >a  {
+                    color: $link_hover;
+                }
+            }
+            .menu-toggle {
+                display: none;
+            }
+            &.menu-item-has-children {
+                position: relative;
+                > a {
+                    &:after {
+                        content: "\f0d7";
+                        font-family: FontAwesome;
+                        padding-left: 5px;
+                    }
+                }
+                &:hover {
+                    .sub-menu {
+                        max-height: none;
+                        padding: 20px 0;
+                    }
+                }
+                > ul {
+                    display: block;
+                    max-height: 0;
+                    position: absolute;
+                    margin: 0;
+                    padding: 0;
+                    z-index: 99;
+                    max-width: 600px;
+                    width: 600px;
+                    overflow: hidden;
+                    background-color: #FFF;
+                    transition: max-height 300ms ease-in-out;
+                    li {
+                        list-style: none inside;
+                        min-width: 150px;
+                        width: 25%;
+                        float: left;
+                        a {
+                            color: #333;
+                            display: block;
+                            padding: 3px 0 3px 15px;
+                            &:before {
+                                content: "\f105";
+                                font-family: 'FontAwesome';
+                                padding-right: 15px;
+                            }
+                        }
+                        &:hover a {
+                            background-color: rgba(0,0,0,0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .navbar-header {
+        .navbar-toggle {
+            margin-top: 20px;
+        }
+    }
+    .nav.main-navigation {
+        li {
+            position: relative;
+            a {
+                color: $link_color;
+            }
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 0;
+                padding: 12px 15px;
+                background-color: #FFF;
+                color: #333;
+                cursor: pointer;
+            }
+            &.current-menu-item,
+            &.current-menu-ancestor,
+            &.current-menu-parent,
+            &.active,
+            &:hover {
+                > a  {
+                    color: $link_hover;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+            &.menu-item-has-children {
+
+                &.submenu-open {
+                    > ul.sub-menu {
+                        display: block;
+                    }
+                }
+                ul.sub-menu {
+                    margin: 0;
+                    padding: 0;
+                    display: none;
+                    li {
+                        a {
+                            padding: 5px 30px;
+                            display: block;
+                            &:before {
+                                content: '-';
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-form.search-form {
+        position: relative;
+        .btn-search {
+            position: absolute;
+            top: 10px;
+            right: 7px;
+        }
+    }
+}
+/**
+Sub Navigation
+*/
+#sub-nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
+    .menu {
+        margin: 0;
+        padding: 0;
+        li {
+            line-height: 30px;
+            a {
+                color: #FFF;
+                display: block
+            }
+        }
+    }
+}

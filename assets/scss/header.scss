@@ -1,0 +1,55 @@
+/**
+* Header Top
+*/
+#header-top {
+    background-color: #2A3039;
+    .widget {
+        color: #ffffff;
+        float: left;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0 13px 0 0;
+        padding: 5px 0;
+        a {
+            color: #FFF;
+            &:hover {
+                color: $primary_color;
+            }
+        }
+        .fa-envelope-o {
+            padding: 0 5px;
+        }
+    }
+}
+/**
+* Header Style
+*/
+#header {
+    background-color: #FFF;
+    .navbar.navbar-default {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        .container-fluid {
+            padding: 0;
+        }
+        .navbar-header {
+            #logo {
+                margin: 0 20px 0 0; padding: 0;
+                line-height: $header_height;
+                height: $header_height;
+                position: relative;
+                .site-title {
+                    position: absolute;
+                    opacity: 0;
+                }
+                a {
+                    display: block;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}

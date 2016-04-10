@@ -1,0 +1,110 @@
+/**
+* Main Content
+*/
+
+/**
+* Grid - Blog
+*/
+.template-zura_grid--blog  {
+    .post-time {
+        float: left;
+        position: relative;
+        text-align: center;
+        width: 45px;
+        margin-top: 5px;
+        background-color: $primary_color;
+        span {
+            display: block;
+            &.date {
+                color: #fff;
+                display: block;
+                font-size: 20px;
+                padding: 2px 0;
+            }
+            &.month {
+                background-color: #000;
+                color: #fff;
+                display: block;
+                font-size: 12px;
+                padding: 2px 0;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .post-info {
+        padding-left: 60px;
+        .post-title {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            a {
+                color: #333;
+                &:hover {
+                    color: $link_hover;
+                }
+            }
+        }
+        .description {
+            font-size: 14px;
+        }
+    }
+}
+
+/**
+* Carousel - Testimonials
+*/
+.template-zura_carousel--testimonial {
+    .zura-carousel-item {
+        text-align: center;
+        .testimonial-header {
+            .image {
+                margin-bottom: 10px;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    display: inline;
+                }
+            }
+            .testimonial-name,
+            .position {
+                margin: 0;
+                font-size: 16px;
+                line-height: normal;
+            }
+            .position {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.template-zura_carousel--room {
+    .zura-carousel-item {
+        .image {
+            position: relative;
+            -webkit-box-shadow: 0 -80px 80px 0 rgba(0, 0, 0, 0.45) inset;
+            -moz-box-shadow: 0 -80px 80px 0 rgba(0, 0, 0, 0.45) inset;
+            box-shadow: 0 -80px 80px 0 rgba(0, 0, 0, 0.45) inset;
+            .price {
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                color: #ffffff;
+                display: block;
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 1.2;
+                padding: 3px 10px;
+                background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+            }
+        }
+        .title {
+            a {
+                color: $link_color;
+                &:hover {
+                    color: $link_hover;
+                }
+            }
+        }
+    }
+}
