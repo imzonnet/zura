@@ -25,7 +25,6 @@
 * Header Style
 */
 #header {
-    background-color: #FFF;
     .navbar.navbar-default {
         background-color: transparent;
         border: none;
@@ -37,9 +36,8 @@
         }
         .navbar-header {
             #logo {
-                margin: 0 20px 0 0; padding: 0;
-                line-height: $header_height;
-                height: $header_height;
+                margin: 0 20px 0 0;
+                padding: 0;
                 position: relative;
                 .site-title {
                     position: absolute;

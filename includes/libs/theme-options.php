@@ -25,6 +25,12 @@ class Zura_Theme_Options {
         $this->setSection();
 
         // Custom
+        add_action( 'admin_init', array($this, 'setAdminScripts') );
+    }
+
+    public function setAdminScripts() {
+        // Register our script.
+        wp_enqueue_style( 'zura-admin-style', get_template_directory_uri() . '/includes/libs/assets/css/admin.css', array(), 20160411);
     }
 
     /**

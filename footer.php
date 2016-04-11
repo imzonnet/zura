@@ -11,7 +11,6 @@
 ?>
 		</div><!-- End #main-content -->
 	</div><!--.site-inner-->
-
 	<footer id="footer">
 		<div id="footer-top">
 			<div class="container">

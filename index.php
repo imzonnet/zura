@@ -19,23 +19,21 @@ get_header(); ?>
 <div class="<?php zura_main_class(); ?>">
     <div class="row">
         <section id="primary" class="col-md-8">
-            <div class="row">
-                <?php if (have_posts()) : ?>
-                    <?php
-                    // Start the loop.
-                    while (have_posts()) : the_post();
-                        get_template_part('templates/content/content', get_post_format());
-                    endwhile;
-                    // End the loop.
-                    // Previous/next page navigation.
-                    zura_pagination();
+           <?php if (have_posts()) : ?>
+                <?php
+                // Start the loop.
+                while (have_posts()) : the_post();
+                    get_template_part('templates/content/content', get_post_format());
+                endwhile;
+                // End the loop.
+                // Previous/next page navigation.
+                zura_pagination();
 
-                // If no content, include the "No posts found" template.
-                else :
-                    get_template_part('templates/content', 'none');
-                endif;
-                ?>
-            </div>
+            // If no content, include the "No posts found" template.
+            else :
+                get_template_part('templates/content', 'none');
+            endif;
+            ?>
         </section><!-- #primary -->
         <section id="sidebar" class="col-md-4">
             <?php get_sidebar(); ?>

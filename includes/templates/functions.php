@@ -1,24 +1,29 @@
 <?php
-
-
 /**
- * Get meta data.
- * @author ZuraVN
- * @return mixed|NULL
+ * Theme Functions
  */
-function zura_meta_data(){
-    global $post, $zura_meta;
+if( !function_exists('zura_meta_data') ) {
+    /**
+     * Get meta data.
+     * @author ZuraVN
+     * @return mixed|NULL
+     */
+    function zura_meta_data()
+    {
+        global $post, $zura_meta;
 
-    if(!isset($post->ID)) return ;
+        if (!isset($post->ID)) return;
 
-    $zura_meta = json_decode(get_post_meta($post->ID, '_zura_meta_data', true));
-    if(empty($zura_meta)) return ;
+        $zura_meta = json_decode(get_post_meta($post->ID, '_zura_meta_data', true));
+        if (empty($zura_meta)) return;
 
-    foreach ($zura_meta as $key => $meta){
-        $zura_meta->$key = rawurldecode($meta);
+        foreach ($zura_meta as $key => $meta) {
+            $zura_meta->$key = rawurldecode($meta);
+        }
     }
 }
 add_action('wp', 'zura_meta_data');
+
 
 if( !function_exists('zura_post_meta_data') ) {
     /**
@@ -170,16 +175,26 @@ if( !function_exists('zura_header_logo')) {
             <h1 id="logo" class="navbar-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                     <span class="site-title"><?php bloginfo('name'); ?></span>
-                    <img src="<?php echo esc_url($smof_data['logo']['url']); ?>" alt="<?php bloginfo('name'); ?>">
+                    <img src="<?php echo esc_url($smof_data['main_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>">
                 </a>
             </h1>
         <?php else : ?>
             <p id="logo" class="navbar-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                     <span class="site-title"><?php bloginfo('name'); ?></span>
-                    <img src="<?php echo esc_url($smof_data['logo']['url']); ?>" alt="<?php bloginfo('name'); ?>">
+                    <img src="<?php echo esc_url($smof_data['main_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>">
                 </a>
             </p>
         <?php endif;
+    }
+}
+
+if( !function_exists('zura_theme_data')) {
+    /**
+     * Get Theme Option Data
+     */
+    function zura_theme_data($key) {
+        global $smof_data;
+        return isset($smof_data[$key]) ? $smof_data[$key] : NULL;
     }
 }

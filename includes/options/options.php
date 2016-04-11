@@ -5,16 +5,7 @@ $this->addSection(array(
     'id'    => 'general',
     'icon'  => 'el el-home',
     'fields'     => array(
-        array(
-            'id'       => 'logo',
-            'type'     => 'media',
-            'url'      => true,
-            'title'    => __('Logo', 'zura'),
-            'desc'     => __('Change website logo', 'zura'),
-            'default'  => array(
-                'url'  => get_template_directory_uri() .'/logo.png'
-            )
-        ),
+
     )
 ) );
 
@@ -39,13 +30,13 @@ $this->addSection(array(
             'default' => '5',
             'type' => 'image_select',
             'options' => array(
-                '' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-0.png',
-                '1' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-1.png',
-                '2' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-2.png',
-                '3' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-3.png',
-                '4' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-4.png',
-                '5' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-5.png',
-                '6' => get_template_directory_uri().'/includes/options/images/pagetitle/pt-s-6.png',
+                '' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-0.png',
+                '1' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-1.png',
+                '2' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-2.png',
+                '3' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-3.png',
+                '4' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-4.png',
+                '5' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-5.png',
+                '6' => get_template_directory_uri().'/includes/libs/assets/images/pagetitle/pt-s-6.png',
             )
         ),
         array(
@@ -53,7 +44,7 @@ $this->addSection(array(
             'type'     => 'background',
             'title'    => esc_html__( 'Background', 'zura' ),
             'subtitle' => esc_html__( 'page title background with image, color, etc.', 'zura' ),
-            'output'   => array('#zo-page-element-wrap'),
+            'output'   => array('#zura-page-element-wrap'),
             'default'   => array(
                 'background-color'=>'#ffffff',
                 'background-image'=> get_template_directory_uri().'/assets/images/pagetitle.jpg',
@@ -69,7 +60,7 @@ $this->addSection(array(
             'type' => 'spacing',
             'units' => 'px',
             'mode' => 'margin',
-            'output' => array('#zo-page-element-wrap'),
+            'output' => array('#zura-page-element-wrap'),
             'default' => array(
                 'margin-top'     => '0',
                 'margin-right'   => '0',
@@ -84,11 +75,11 @@ $this->addSection(array(
             'type' => 'spacing',
             'units' => 'px',
             'mode' => 'padding',
-            'output' => array('#zo-page-element-wrap'),
+            'output' => array('#zura-page-element-wrap'),
             'default' => array(
-                'padding-top'     => '320px',
+                'padding-top'     => '100px',
                 'padding-right'   => '0',
-                'padding-bottom'  => '305px',
+                'padding-bottom'  => '100px',
                 'padding-left'    => '0',
                 'units'          => 'px',
             )
@@ -111,7 +102,7 @@ $this->addSection(array(
             'google' => true,
             'font-backup' => true,
             'all_styles' => true,
-            'output'  => array('.page-title #page-title-text h1'),
+            'output'  => array('#zura-page-element-wrap .page-title h1'),
             'units' => 'px',
             'subtitle' => esc_html__('Typography option with title text.', 'zura'),
             'default' => array(
@@ -124,28 +115,7 @@ $this->addSection(array(
                 'line-height' => '72px',
                 'text-align' => 'center'
             )
-        ),
-        array(
-            'id' => 'page_sub_title_typography',
-            'type' => 'typography',
-            'title' => esc_html__('Sub Title', 'zura'),
-            'google' => true,
-            'font-backup' => true,
-            'all_styles' => true,
-            'output'  => array('.page-title #page-title-text .page-sub-title'),
-            'units' => 'px',
-            'subtitle' => esc_html__('Typography option with sub title text.', 'zura'),
-            'default' => array(
-                'color' => '#fff',
-                'font-style' => 'normal',
-                'font-weight' => '400',
-                'font-family' => 'Damion',
-                'google' => true,
-                'font-size' => '36px',
-                'line-height' => '60px',
-                'text-align' => 'center'
-            )
-        ),
+        )
     )
 ));
 /**
@@ -158,19 +128,25 @@ $this->addSection(array(
     'fields' => array(
         array(
             'subtitle' => esc_html__('The text before the breadcrumb home.', 'zura'),
-            'id' => 'breacrumb_home_prefix',
+            'id' => 'breadcrumb_home_prefix',
             'type' => 'text',
             'title' => esc_html__('Breadcrumb Home Prefix', 'zura'),
             'default' => 'Home'
         ),
         array(
-            'id' => 'breacrumb_typography',
+            'id' => 'breadcrumb_typography',
             'type' => 'typography',
             'title' => esc_html__('Typography', 'zura'),
             'google' => true,
             'font-backup' => true,
             'all_styles' => true,
-            'output'  => array('#breadcrumb #breadcrumb-text .breadcrumbs','#breadcrumb #breadcrumb-text ul li a'),
+            'output'  => array(
+                '#breadcrumbs',
+                '#breadcrumbs li',
+                '#breadcrumbs li a',
+                '#breadcrumbs a',
+                '#breadcrumbs span',
+            ),
             'units' => 'px',
             'subtitle' => esc_html__('Typography option with title text.', 'zura'),
             'default' => array(
@@ -183,6 +159,241 @@ $this->addSection(array(
                 'line-height' => '13px',
                 'text-align' => 'center'
             )
+        ),
+    )
+));
+
+/**
+ * Header Options
+ *
+ * @author ZoTheme
+ */
+$this->addSection(array(
+    'title' => esc_html__('Header', 'lucian'),
+    'icon' => 'el-icon-credit-card',
+    'fields' => array(
+        array(
+            'id' => 'header_layout',
+            'title' => esc_html__('Layouts', 'lucian'),
+            'subtitle' => esc_html__('select a layout for header', 'lucian'),
+            'default' => '',
+            'type' => 'image_select',
+            'options' => array(
+                '' => get_template_directory_uri().'/includes/libs/assets/images/header/default.png',
+                '1' => get_template_directory_uri().'/includes/libs/assets/images/header/style-1.png',
+            )
+        ),
+        array(
+            'id'       => 'header_height',
+            'type'     => 'dimensions',
+            'units'    => array('px'),
+            'title'    => esc_html__('Header Height', 'lucian'),
+            'output' => array('#header'),
+            'width' => false,
+            'default'  => array(
+                'height'  => '60px'
+            ),
+        ),
+        array(
+            'id' => 'header_margin',
+            'title' => esc_html__('Margin', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'margin',
+            'output' => array('body #header'),
+            'default' => array(
+                'margin-top'     => '100px',
+                'margin-right'   => '0',
+                'margin-bottom'  => '0',
+                'margin-left'    => '0',
+                'units'          => 'px',
+            )
+        ),
+        array(
+            'id' => 'header_padding',
+            'title' => esc_html__('Padding', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'padding',
+            'output' => array('body #header'),
+            'default' => array(
+                'padding-top'     => '0',
+                'padding-right'   => '0',
+                'padding-bottom'  => '0',
+                'padding-left'    => '0',
+                'units'          => 'px',
+            )
+        ),
+        array(
+            'subtitle' => esc_html__('enable sticky mode for menu.', 'lucian'),
+            'id' => 'menu_sticky',
+            'type' => 'switch',
+            'title' => esc_html__('Sticky Header', 'lucian'),
+            'default' => false,
+        ),
+        array(
+            'id'       => 'menu_sticky_height',
+            'type'     => 'dimensions',
+            'units'    => array('px'),
+            'title'    => esc_html__('Sticky Header Height', 'lucian'),
+            'width' => false,
+            'default'  => array(
+                'height'  => '80px'
+            ),
+            'required' => array( 0 => 'menu_sticky', 1 => '=', 2 => 1 )
+        ),
+        array(
+            'id' => 'menu_sticky_header_margin',
+            'title' => esc_html__('Sticky Header Margin', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'margin',
+            'output' => array('body #header.header-fixed'),
+            'default' => array(
+                'margin-top'     => '0',
+                'margin-right'   => '0',
+                'margin-bottom'  => '0',
+                'margin-left'    => '0',
+                'units'          => 'px',
+            ),
+            'required' => array( 0 => 'menu_sticky', 1 => '=', 2 => 1 )
+        ),
+        array(
+            'id' => 'menu_sticky_header_padding',
+            'title' => esc_html__('Sticky Header Padding', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'padding',
+            'output' => array('body #header.header-fixed'),
+            'default' => array(
+                'padding-top'     => '0',
+                'padding-right'   => '0',
+                'padding-bottom'  => '0',
+                'padding-left'    => '0',
+                'units'          => 'px',
+            ),
+            'required' => array( 0 => 'menu_sticky', 1 => '=', 2 => 1 )
+        ),
+        array(
+            'subtitle' => esc_html__('enable sticky mode for menu Tablets.', 'lucian'),
+            'id' => 'menu_sticky_tablets',
+            'type' => 'switch',
+            'title' => esc_html__('Sticky Tablets', 'lucian'),
+            'default' => false,
+            'required' => array( 0 => 'menu_sticky', 1 => '=', 2 => 1 )
+        ),
+        array(
+            'subtitle' => esc_html__('enable sticky mode for menu Mobile.', 'lucian'),
+            'id' => 'menu_sticky_mobile',
+            'type' => 'switch',
+            'title' => esc_html__('Sticky Mobile', 'lucian'),
+            'default' => false,
+            'required' => array( 0 => 'menu_sticky', 1 => '=', 2 => 1 )
+        )
+    )
+));
+
+/* Header Top */
+$this->addSection(array(
+    'title' => esc_html__('Header Top', 'lucian'),
+    'icon' => 'el-icon-minus',
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'subtitle' => esc_html__('Enable header top.', 'lucian'),
+            'id' => 'enable_header_top',
+            'type' => 'switch',
+            'title' => esc_html__('Enable Header Top', 'lucian'),
+            'default' => false,
+        ),
+        array(
+            'id' => 'header_top_margin',
+            'title' => esc_html__('Margin', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'margin',
+            'output' => array('body #zo-header-top'),
+            'default' => array(
+                'margin-top'     => '0',
+                'margin-right'   => '0',
+                'margin-bottom'  => '0',
+                'margin-left'    => '0',
+                'units'          => 'px',
+            ),
+            'required' => array( 0 => 'enable_header_top', 1 => '=', 2 => 1 )
+        ),
+        array(
+            'id' => 'header_top_padding',
+            'title' => esc_html__('Padding', 'lucian'),
+            'type' => 'spacing',
+            'units' => 'px',
+            'mode' => 'padding',
+            'output' => array('body #zo-header-top'),
+            'default' => array(
+                'padding-top'     => '0',
+                'padding-right'   => '0',
+                'padding-bottom'  => '0',
+                'padding-left'    => '0',
+                'units'          => 'px',
+            ),
+            'required' => array( 0 => 'enable_header_top', 1 => '=', 2 => 1 )
+        ),
+    )
+));
+
+/* Logo */
+$this->addSection(array(
+    'title' => esc_html__('Logo', 'lucian'),
+    'icon' => 'el-icon-picture',
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'title' => esc_html__('Select Logo', 'lucian'),
+            'subtitle' => esc_html__('Select an image file for your logo.', 'lucian'),
+            'id' => 'main_logo',
+            'type' => 'media',
+            'url' => true,
+            'default' => array(
+                'url'=>get_template_directory_uri().'/logo.png'
+            )
+        ),
+        array(
+            'id'       => 'main_logo_height',
+            'type'     => 'dimensions',
+            'units'    => array('px'),
+            'title'    => esc_html__('Logo Height', 'lucian'),
+            'width' => false,
+            'default'  => array(
+                'height'  => '60px'
+            ),
+        ),
+        array(
+            'id'       => 'sticky_logo_height',
+            'type'     => 'dimensions',
+            'units'    => array('px'),
+            'title'    => esc_html__('Sticky Logo Height', 'lucian'),
+            'width' => false,
+            'default'  => array(
+                'height'  => '80px'
+            ),
+        ),
+        array(
+            'subtitle' => esc_html__('Change Sticky Logo.', 'lucian'),
+            'id' => 'sticky_logo_enable',
+            'type' => 'switch',
+            'title' => esc_html__('Enable Sticky Logo ', 'lucian'),
+            'default' => false,
+        ),
+        array(
+            'title' => esc_html__('Select Logo', 'lucian'),
+            'subtitle' => esc_html__('Select an image file for your logo.', 'lucian'),
+            'id' => 'sticky_logo',
+            'type' => 'media',
+            'url' => true,
+            'default' => array(
+                'url'=>get_template_directory_uri().'/logo.png'
+            ),
+            'required' => array( 0 => 'sticky_logo_enable', 1 => '=', 2 => 1 )
         ),
     )
 ));

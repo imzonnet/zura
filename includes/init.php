@@ -20,7 +20,7 @@
  * Theme Options
  */
 require 'libs/ReduxCore/framework.php';
-require 'templates/theme-options.php';
+require 'libs/theme-options.php';
 
 
 function dd($x) {

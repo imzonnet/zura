@@ -18,6 +18,23 @@ if( !function_exists('zura_page_element') ) {
         }
     }
 }
+/**
+ * Get Header Layout.
+ *
+ * @author ZoTheme
+ */
+function zura_header(){
+    global $smof_data, $zura_meta;
+    /* header for page */
+    if(isset($zura_meta->_zo_header) && $zura_meta->_zo_header){
+        if(isset($zura_meta->_zo_header_layout)){
+            $smof_data['header_layout'] = $zura_meta->_zo_header_layout;
+        }
+    }
+    /* load template. */
+    get_template_part('templates/header/style', $smof_data['header_layout']);
+}
+
 if( !function_exists('zura_page_title_content') ) {
 
     /**
@@ -44,10 +61,14 @@ if( !function_exists('zura_page_title_content') ) {
         ?>
         <div id="zura-page-element-wrap" style="<?php echo implode(';', $styles) ?>">
             <?php echo wp_kses_post($page_title_before); ?>
-            <h1><?php $zura_page_element->getPageTitle(); ?></h1>
+            <div class="col-md-12">
+                <h1 class="page-title"><?php $zura_page_element->getPageTitle(); ?></h1>
+            </div>
             <?php echo wp_kses_post($page_title_after); ?>
             <?php echo wp_kses_post($breadcrumb_before); ?>
-            <?php $zura_page_element->getBreadCrumb(); ?>
+            <div class="col-md-12">
+                <?php echo $zura_page_element->getBreadCrumb(); ?>
+            </div>
             <?php echo wp_kses_post($breadcrumb_after); ?>
         </div><!-- #zura-page-element-wrap-->
         <?php

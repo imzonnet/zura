@@ -33,4 +33,6 @@
 		/* check back to top */
 		zura_back_to_top();
 	});
+	/**------End Back To Top------**/
+
 } )( jQuery );

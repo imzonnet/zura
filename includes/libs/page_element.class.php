@@ -83,61 +83,66 @@ class ZuraPageElement
      * @since 1.0.0
      */
     public static function getBreadCrumb($separator = '') {
+
+        if ( function_exists('yoast_breadcrumb') )  {
+            return yoast_breadcrumb('<p id="breadcrumbs">','</p>', false);
+        }
+
         global $smof_data, $post;
-        echo '<ul class="breadcrumbs">';
+        $output = '<ul class="breadcrumbs">';
         /* not front_page */
         if ( !is_front_page() ) {
-            echo '<li><a href="';
-            echo esc_url(home_url('/'));
-            echo '">'.$smof_data['breadcrumb_home_prefix'];
-            echo "</a></li>";
+            $output .= '<li><a href="';
+            $output .= esc_url(home_url('/'));
+            $output .= '">'.$smof_data['breadcrumb_home_prefix'];
+            $output .= "</a></li>";
         }
-    
+
         $params['link_none'] = '';
-    
+
         /* category */
         if (is_category()) {
             $category = get_the_category();
             $ID = $category[0]->cat_ID;
-            echo is_wp_error( $cat_parents = get_category_parents($ID, TRUE, '', FALSE ) ) ? '' : '<li>'.$cat_parents.'</li>';
+            $output .= is_wp_error( $cat_parents = get_category_parents($ID, TRUE, '', FALSE ) ) ? '' : '<li>'.$cat_parents.'</li>';
         }
         /* tax */
         if (is_tax()) {
             $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
             $link = get_term_link( $term );
-            	
+
             if ( is_wp_error( $link ) ) {
-                echo sprintf('<li>%s</li>', $term->name );
+                $output .= sprintf('<li>%s</li>', $term->name );
             } else {
-                echo sprintf('<li><a href="%s" title="%s">%s</a></li>', $link, $term->name, $term->name );
+                $output .= sprintf('<li><a href="%s" title="%s">%s</a></li>', $link, $term->name, $term->name );
             }
         }
         /* home */
-        
+
         /* page not front_page */
         if(is_page() && !is_front_page()) {
             $parents = array();
             $parent_id = $post->post_parent;
             while ( $parent_id ) :
-            $page = get_page( $parent_id );
-            if ( $params["link_none"] )
-                $parents[]  = get_the_title( $page->ID );
-            else
-                $parents[]  = '<li><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
-            $parent_id  = $page->post_parent;
+                $page = get_page( $parent_id );
+                if ( $params["link_none"] )
+                    $parents[]  = get_the_title( $page->ID );
+                else
+                    $parents[]  = '<li><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
+                $parent_id  = $page->post_parent;
             endwhile;
             $parents = array_reverse( $parents );
-            echo join( '', $parents );
-            echo '<li>'.get_the_title().'</li>';
+            $output .= join( '', $parents );
+            $output .= '<li>'.get_the_title().'</li>';
         }
         /* single */
         if(is_single()) {
             $categories_1 = get_the_category($post->ID);
             if($categories_1):
-            foreach($categories_1 as $cat_1):
-            $cat_1_ids[] = $cat_1->term_id;
-            endforeach;
-            $cat_1_line = implode(',', $cat_1_ids);
+                foreach($categories_1 as $cat_1):
+                    $cat_1_ids[] = $cat_1->term_id;
+                endforeach;
+                $cat_1_line = implode(',', $cat_1_ids);
             endif;
             if( isset( $cat_1_line ) && $cat_1_line ) {
                 $categories = get_categories(array(
@@ -145,30 +150,31 @@ class ZuraPageElement
                     'orderby' => 'id'
                 ));
                 if ( $categories ) :
-                foreach ( $categories as $cat ) :
-                $cats[] = '<li><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';
-                endforeach;
-                echo join( '', $cats );
+                    foreach ( $categories as $cat ) :
+                        $cats[] = '<li><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';
+                    endforeach;
+                    $output .= join( '', $cats );
                 endif;
             }
-            echo '<li>'.get_the_title().'</li>';
+            $output .= '<li>'.get_the_title().'</li>';
         }
         /* tag */
-        if( is_tag() ){ echo '<li>'."Tag: ".single_tag_title('',FALSE).'</li>'; }
+        if( is_tag() ){ $output .= '<li>'."Tag: ".single_tag_title('',FALSE).'</li>'; }
         /* search */
-        if( is_search() ){ echo '<li>'.esc_html__("Search", 'zura').'</li>'; }
+        if( is_search() ){ $output .= '<li>'.esc_html__("Search", 'zura').'</li>'; }
         /* date */
-        if( is_year() ){ echo '<li>'.get_the_time('Y').'</li>'; }
+        if( is_year() ){ $output .= '<li>'.get_the_time('Y').'</li>'; }
         /* 404 */
         if( is_404() ) {
-            echo '<li>'.esc_html__("404 - Page not Found", 'zura').'</li>';
+            $output .= '<li>'.esc_html__("404 - Page not Found", 'zura').'</li>';
         }
         /* archive */
-  		if( is_archive() && is_post_type_archive() ) {
-  		    $title = post_type_archive_title( '', false );
-  		    echo '<li>'. $title .'</li>';
-  		}
-        echo "</ul>";
+        if( is_archive() && is_post_type_archive() ) {
+            $title = post_type_archive_title( '', false );
+            $output .= '<li>'. $title .'</li>';
+        }
+        $output .= "</ul>";
+        return $output;
     }
     
     /**

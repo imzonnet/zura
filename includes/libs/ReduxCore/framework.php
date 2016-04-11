@@ -403,7 +403,7 @@
 
                     if ( $this->args['dev_mode'] == true || Redux_Helpers::isLocalHost() == true ) {
                         require_once 'core/dashboard.php';
-                        new reduxDashboardWidget($this);
+                        //new reduxDashboardWidget($this);
 
                         if ( ! isset ( $GLOBALS['redux_notice_check'] ) ) {
                             require_once 'core/newsflash.php';

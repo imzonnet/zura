@@ -1,0 +1,4 @@
+.redux-main .redux-image-select img,
+.redux-container-image_select .redux-image-select {
+    max-width: 100% !important;
+}
