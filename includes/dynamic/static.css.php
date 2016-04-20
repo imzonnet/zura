@@ -96,10 +96,12 @@ class Zura_StaticCss
         /**
         * Set Style Color
         */
-        echo "\$primary_color: {$smof_data['primary_color']};";
-        echo "\$secondary_color: {$smof_data['secondary_color']};";
-        echo "\$link_color: {$smof_data['link_color']['regular']};";
-        echo "\$link_hover_color: {$smof_data['link_color']['hover']};";
+        echo "\$primary_color: {$smof_data['primary_color']};\n";
+        echo "\$secondary_color: {$smof_data['secondary_color']};\n";
+        echo "\$link_color: {$smof_data['link_color']['regular']};\n";
+        echo "\$link_hover_color: {$smof_data['link_color']['hover']};\n";
+        echo "\$header_height: {$smof_data['header_height']['height']};\n";
+        echo "\$header_sticky_height: {$smof_data['menu_sticky_height']['height']};\n";
         /* ==========================================================================
            End Button
         ========================================================================== */

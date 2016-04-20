@@ -198,3 +198,21 @@ if( !function_exists('zura_theme_data')) {
         return isset($smof_data[$key]) ? $smof_data[$key] : NULL;
     }
 }
+
+
+if( !function_exists('zura_copyright_hook')) {
+    /**
+     * Get Theme Option Data
+     */
+    function zura_copyright_hook() {
+        ?>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright"> Copyright © <?php echo date('Y'); ?> <a title="<?php bloginfo('name'); ?>" href="http://zuravn.com">Zura</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+        <?php
+    }
+}
+add_action('zura_copyright', 'zura_copyright_hook');
+

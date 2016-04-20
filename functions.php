@@ -132,9 +132,9 @@ add_action( 'after_setup_theme', 'zura_content_width', 0 );
 function zura_widgets_init() {
 
 	register_sidebar( array(
-		'name'          => __( 'Header Top', 'zura' ),
-		'id'            => 'header-top-1',
-		'description'   => __( 'Add widgets here to appear in the header.', 'zura' ),
+		'name'          => __( 'Main Sidebar', 'zura' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'zura' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -142,9 +142,18 @@ function zura_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'zura' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'zura' ),
+		'name'          => __( 'Header Top Left', 'zura' ),
+		'id'            => 'header-top-1',
+		'description'   => __( 'Add widgets here to appear in the header.', 'zura' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Header Top Right', 'zura' ),
+		'id'            => 'header-top-2',
+		'description'   => __( 'Add widgets here to appear in the header.', 'zura' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -160,10 +169,46 @@ function zura_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Top 2', 'zura' ),
+		'id'            => 'footer-top-2',
+		'description'   => __( 'Appears at the top of the footer pages.', 'zura' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Top 3', 'zura' ),
+		'id'            => 'footer-top-3',
+		'description'   => __( 'Appears at the top of the footer pages.', 'zura' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Top 4', 'zura' ),
+		'id'            => 'footer-top-4',
+		'description'   => __( 'Appears at the top of the footer pages.', 'zura' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Footer Bottom', 'zura' ),
+		'name'          => __( 'Footer Bottom 1', 'zura' ),
 		'id'            => 'footer-bottom-1',
+		'description'   => __( 'Appears at the bottom of the footer pages.', 'zura' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Bottom 2', 'zura' ),
+		'id'            => 'footer-bottom-2',
 		'description'   => __( 'Appears at the bottom of the footer pages.', 'zura' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',

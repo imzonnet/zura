@@ -17,7 +17,7 @@
 </section>
 <?php endif; ?>
 <!--begin-->
-<section id="header" class="site-header">
+<section id="header" class="site-header <?php if(zura_theme_data('menu_sticky') == 1) esc_html_e('header-sticky', 'zura'); ?>">
     <div class="container">
         <!-- Static navbar -->
         <nav class="navbar navbar-default">
@@ -30,6 +30,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <?php zura_header_logo(); ?>
+                </div>
+                <div id="search-form">
+                    <form action="#" class="form-search">
+                        <input type="text" name="key" class="search-text" placeholder="Search..." />
+                        <input type="submit" name="ok" class="search-submit" value="GO" />
+                    </form>
+                    <span class="btn-search"><i class="fa fa-search"></i></span>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <?php

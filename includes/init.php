@@ -55,6 +55,11 @@ require 'dynamic/static.css.php';
 require 'libs/page_element.class.php';
 require_once 'options/header.php';
 
+
+/**
+ * Custom VC Params.
+ */
+require 'templates/vc_custom.php';
 /**
  * Custom template functions.
  */

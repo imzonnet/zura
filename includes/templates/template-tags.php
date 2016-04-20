@@ -247,3 +247,7 @@ function zura_category_transient_flusher() {
 }
 add_action( 'edit_category', 'zura_category_transient_flusher' );
 add_action( 'save_post',     'zura_category_transient_flusher' );
+
+function zura_copyright() {
+	do_action('zura_copyright');
+}

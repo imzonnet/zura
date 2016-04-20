@@ -10,6 +10,7 @@
                 font-size: 18px;
                 line-height: $header_height;
                 padding: 0 15px;
+                border-bottom: 3px solid transparent;
             }
             &.current-menu-item,
             &.current-menu-ancestor,
@@ -17,14 +18,15 @@
             &.active,
             &:hover {
                 >a  {
-                    color: $link_hover;
+                    color: $link_hover_color;
+                    background-color: #F6F6F6;
+                    border-bottom-color: #D86838;
                 }
             }
             .menu-toggle {
                 display: none;
             }
             &.menu-item-has-children {
-                position: relative;
                 > a {
                     &:after {
                         content: "\f0d7";
@@ -32,41 +34,51 @@
                         padding-left: 5px;
                     }
                 }
-                &:hover {
-                    .sub-menu {
-                        max-height: none;
-                        padding: 20px 0;
-                    }
-                }
-                > ul {
-                    display: block;
-                    max-height: 0;
-                    position: absolute;
+            }
+        }
+        li.menu-item-has-children {
+            position: relative;
+            &:hover {
+                > .sub-menu {
+                    max-height: none;
                     margin: 0;
-                    padding: 0;
-                    z-index: 99;
-                    max-width: 600px;
-                    width: 600px;
-                    overflow: hidden;
-                    background-color: #FFF;
-                    transition: max-height 300ms ease-in-out;
-                    li {
-                        list-style: none inside;
-                        min-width: 150px;
-                        width: 25%;
-                        float: left;
-                        a {
-                            color: #333;
-                            display: block;
-                            padding: 3px 0 3px 15px;
-                            &:before {
-                                content: "\f105";
-                                font-family: 'FontAwesome';
-                                padding-right: 15px;
-                            }
-                        }
-                        &:hover a {
-                            background-color: rgba(0,0,0,0.1);
+                    opacity: 1;
+                    height: auto;
+                    overflow: visible;
+                }
+            }
+            ul {
+                max-height: 0;
+                height: 0;
+                position: absolute;
+                margin: 15px 0 0;
+                padding: 0;
+                z-index: 99;
+                background: #F6F6F6;
+                opacity: 0;
+                overflow: hidden;
+                @include transition(margin 200ms ease-in-out);
+                li {
+                    list-style: none inside;
+                    min-width: 220px;
+                    float: left;
+                    a {
+                        color: $link_color;
+                        display: block;
+                        padding: 10px 5px;
+                        border-bottom: 1px solid #ddd;
+                        @include transition(all 200ms ease-in-out);
+                    }
+                    &:hover > a {
+                        background-color: $link_hover_color;
+                        color: #FFF;
+                        text-indent: 10px;
+                    }
+                    &.menu-item-has-children {
+                        ul {
+                            padding: 0;
+                            left: 100%;
+                            top: 0;
                         }
                     }
                 }
